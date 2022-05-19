@@ -18,7 +18,7 @@ TODO: how to get the project dev environment up and running, npm install etc
 TODO: how to deploy the project
 
 ## Authors
-
+Kashan Mahmood
 TODO: list of authors
 
 ## Acknowledgments
