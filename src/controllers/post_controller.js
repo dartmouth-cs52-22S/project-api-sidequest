@@ -2,12 +2,13 @@
 import Post from '../models/post_model';
 
 // Create Post
-export async function createPost(postFields, user) {
+export async function createPost(postFields, user, quest) {
   const post = new Post();
   post.title = postFields.title;
   post.description = postFields.description;
   post.coverUrl = postFields.coverUrl;
   post.user = user.userName;
+  post.quest = quest;
   try {
     const savedpost = await post.save();
     return savedpost;
@@ -31,6 +32,15 @@ export async function getPost(id) {
   try {
     const returnPost = await Post.findById(id);
     return returnPost;
+  } catch (error) {
+    throw new Error(`Get post error: ${error}`);
+  }
+}
+
+export async function getLikes(id) {
+  try {
+    const returnLikes = await Post.findById(id).likes;
+    return returnLikes;
   } catch (error) {
     throw new Error(`Get post error: ${error}`);
   }

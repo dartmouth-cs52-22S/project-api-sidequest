@@ -4,8 +4,9 @@ const PostSchema = new Schema({
   title: String,
   description: String,
   photoUrl: String,
-
-  user: { type: Schema.Types.ObjectId, ref: 'user' },
+  likes: Number,
+  quest: { type: Schema.Types.ObjectId, ref: 'Quest' },
+  user: { type: Schema.Types.ObjectId, ref: 'User' },
 
 }, {
   toObject: { virtuals: true },

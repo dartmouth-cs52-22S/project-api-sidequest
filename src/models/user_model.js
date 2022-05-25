@@ -1,14 +1,30 @@
 // From lab/sa7 -------DO WE NEED TO CHANGE SHIT
 
 import mongoose, { Schema } from 'mongoose';
-
 import bcrypt from 'bcryptjs/dist/bcrypt';
+
+const statsSchema = new Schema({
+  wisdom: Number,
+  strength: Number,
+  charisma: Number,
+  magic: Number,
+  health: Number,
+
+});
 
 const userSchema = new Schema(
   {
     authName: { type: String },
     email: { type: String, unique: true, lowercase: true },
     password: { type: String },
+    userName: String,
+    quests: [{ type: Schema.Types.ObjectId, ref: 'Quest' }],
+    posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
+    inventory: [{ type: Schema.Types.ObjectId, ref: 'Item' }],
+    friends: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    stats: statsSchema,
+    groups: [{ type: Schema.Types.ObjectId, ref: 'Group' }],
+
   },
   {
     toObject: { virtuals: true },
