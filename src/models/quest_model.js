@@ -11,6 +11,6 @@ const QuestSchema = new Schema({
 });
 
 // create PostModel class from schema
-const QuestModel = mongoose.model('Post', PostSchema);
+const QuestModel = mongoose.model('Post', QuestSchema);
 
 export default QuestModel;
