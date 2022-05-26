@@ -14,7 +14,7 @@ const statsSchema = new Schema({
 
 const userSchema = new Schema(
   {
-    authName: { type: String },
+    name: { type: String },
     email: { type: String, unique: true, lowercase: true },
     password: { type: String },
     userName: String,
