@@ -40,7 +40,7 @@ router.get('posts/:id', async (req, res) => {
 });
 
 // GET POSTS
-router.get('/posts', async (req, res) => {
+router.get('/posts/all', async (req, res) => {
   try {
     const result = await Posts.getPosts();
 
