@@ -29,6 +29,16 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.get('/all', async (req, res) => {
+  try {
+    const result = await Quest.getQuests();
+
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+});
+
 // Create Quest
 router.post('/', async (req, res) => {
   try {
