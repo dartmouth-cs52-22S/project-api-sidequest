@@ -1,53 +1,37 @@
-import Quest from '../models/quest';
+import Quest from '../models/quest_model';
 
-export async function createQuest(postFields) {
+// Create a quest
+export async function createQuest(questFields) {
   const newQuest = new Quest();
-  newPost.title = postFields.title;
-  newPost.detail = postFields.detail;
-  newPost.photoUrl = postFields.photoUrl;
-  // await creating a quest
-  // return post
+  newQuest.title = questFields.title;
+  newQuest.detail = questFields.detail;
+  newQuest.photoUrl = questFields.photoUrl;
   try {
     const savedQuest = await newQuest.save();
-    return savedpost;
+    return savedQuest;
   } catch (error) {
     console.log(error);
     throw new Error(`create quest error: ${error}`);
   }
 }
+
+// Get all quests
 export async function getQuests() {
   // await finding quests
   try {
-    const quests = await quests.find();
-    return posts;
+    const quests = await Quest.find({}).sort([['date', -1]]);
+    return quests;
   } catch (error) {
     throw new Error(`get posts error: ${error}`);
   }
+}
 
-  // return posts
-}
-export async function getPost(id) {
+// Get a quest by ID
+export async function getQuest(id) {
   try {
-    const post = await Post.findById(id);
-    return post;
-  } catch (error) {
-    throw new Error(`get post error: ${error}`);
-  }
-}
-export async function deleteQuest(id) {
-  try {
-    const quest = await Quest.findByIdAndDelete(id);
-    return post;
-  } catch (error) {
-    throw new Error(`get post error: ${error}`);
-  }
-}
-export async function updateQuest(id, postFields) {
-  try {
-    await Quest.findByIdAndUpdate(id, postFields);
     const quest = await Quest.findById(id);
     return quest;
   } catch (error) {
-    throw new Error(`get post error: ${error}`);
+    throw new Error(`get quest error: ${error}`);
   }
 }

@@ -1,16 +1,14 @@
 import mongoose, { Schema } from 'mongoose';
 
 // create a PostSchema with a title field
-const QuestSchema = new Schema({
-  title: String,
-  detail: String,
-  photoUrl: String,
+const DailyQuestSchema = new Schema({
+  task: String,
 }, {
   toObject: { virtuals: true },
   toJSON: { virtuals: true },
 });
 
 // create PostModel class from schema
-const QuestModel = mongoose.model('Quest', QuestSchema);
+const DailyQuestModel = mongoose.model('DailyQuest', DailyQuestSchema);
 
-export default QuestModel;
+export default DailyQuestModel;
