@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   res.json({ message: 'welcome to our post router!' });
 });
 
-router.put('/:id', requireAuth, async (req, res) => {
+router.put('posts/:id', requireAuth, async (req, res) => {
   try {
     const result = await Posts.updatePost(req.params.id, req.body);
 
@@ -19,7 +19,7 @@ router.put('/:id', requireAuth, async (req, res) => {
 });
 
 // DELETE POST
-router.delete('/:id', requireAuth, async (req, res) => {
+router.delete('posts/:id', requireAuth, async (req, res) => {
   try {
     const result = await Posts.deletePost(req.params.id);
 
@@ -30,7 +30,7 @@ router.delete('/:id', requireAuth, async (req, res) => {
 });
 
 // GET POST
-router.get('/:id', async (req, res) => {
+router.get('posts/:id', async (req, res) => {
   try {
     const result = await Posts.getPost(req.params.id);
 
@@ -41,7 +41,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // GET POSTS
-router.get('/', async (req, res) => {
+router.get('/posts', async (req, res) => {
   try {
     const result = await Posts.getPosts();
 
@@ -51,9 +51,10 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/', requireAuth, async (req, res) => {
+router.post('/posts', async (req, res) => {
+  console.log(req);
   try {
-    const result = await Posts.createPost(req.body, req.user);
+    const result = await Posts.createPost(req.body);
 
     res.json(result);
   } catch (error) {

@@ -14,9 +14,9 @@ const statsSchema = new Schema({
 
 const userSchema = new Schema(
   {
-    name: { type: String },
+    name: String,
     email: { type: String, unique: true, lowercase: true },
-    password: { type: String },
+    password: String,
     userName: String,
     quests: [{ type: Schema.Types.ObjectId, ref: 'Quest' }],
     posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }],

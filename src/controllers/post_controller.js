@@ -7,8 +7,8 @@ export async function createPost(postFields, user, quest) {
   post.title = postFields.title;
   post.description = postFields.description;
   post.coverUrl = postFields.coverUrl;
-  post.user = user.userName;
-  post.quest = quest;
+  // post.user = user.userName;
+  // post.quest = quest;
   try {
     const savedpost = await post.save();
     return savedpost;

@@ -7,6 +7,7 @@ import mongoose from 'mongoose';
 import postRoutes from './routes/postRoutes';
 import userRoutes from './routes/userRoutes';
 import questRoutes from './routes/questRoutes';
+import dailyQuestRoutes from './routes/dailyQuestRoutes';
 
 // initialize
 const app = express();
@@ -31,7 +32,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // To parse the incoming requests with JSON payloads
 app.use('/api/users', userRoutes);
 app.use('/api/quests', questRoutes);
-app.use('/api/posts', postRoutes);
+app.use('/api/homeTab', postRoutes);
+app.use('/api/dailyQuests', dailyQuestRoutes);
 
 // additional init stuff should go before hitting the routing
 
