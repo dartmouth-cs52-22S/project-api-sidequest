@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import * as Quest from '../controllers/quest_controller';
-import { requireAuth } from '../services/passport';
 
 const router = Router();
 
@@ -31,7 +30,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Create Quest
-router.post('/', requireAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const result = await Quest.createQuest(req.body, req.user);
 

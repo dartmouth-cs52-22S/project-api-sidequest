@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import * as Posts from '../controllers/post_controller';
-import { requireAuth } from '../services/passport';
 
 const router = Router();
 
@@ -8,7 +7,7 @@ router.get('/', (req, res) => {
   res.json({ message: 'welcome to our post router!' });
 });
 
-router.put('posts/:id', requireAuth, async (req, res) => {
+router.put('posts/:id', async (req, res) => {
   try {
     const result = await Posts.updatePost(req.params.id, req.body);
 
@@ -19,7 +18,7 @@ router.put('posts/:id', requireAuth, async (req, res) => {
 });
 
 // DELETE POST
-router.delete('posts/:id', requireAuth, async (req, res) => {
+router.delete('posts/:id', async (req, res) => {
   try {
     const result = await Posts.deletePost(req.params.id);
 

@@ -9,6 +9,7 @@ dotenv.config({ silent: true });
 export async function getUsers() {
   try {
     const allUsers = await User.find({}).sort([['date', -1]]);
+    console.log(allUsers, 'HIHIIHIHHHI');
     return allUsers;
   } catch (error) {
     throw new Error(`Get posts error: ${error}`);
