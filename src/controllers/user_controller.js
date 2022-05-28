@@ -59,6 +59,12 @@ export const signup = async ({
   user.name = name;
   user.password = password;
   user.userName = userName;
+  user.stats.wisdom = 5;
+  user.stats.strength = 5;
+  user.stats.charisma = 5;
+  user.stats.magic = 5;
+  user.stats.health = 5;
+
   await user.save();
   return tokenForUser(user);
 };
