@@ -18,7 +18,7 @@ router.get('/all', async (req, res) => {
   }
 });
 
-router.post('/newQuest', async (req, res) => {
+router.post('/new', async (req, res) => {
   try {
     const result = await DailyQuest.createQuest(req.body);
 

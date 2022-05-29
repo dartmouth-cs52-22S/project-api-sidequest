@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 // });
 
 // Create User
-router.post('/signup', async (req, res) => {
+router.post('/new', async (req, res) => {
   try {
     const token = await Users.signup(req.body);
     res.json({ token, email: req.body.email });

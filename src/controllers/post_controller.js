@@ -1,4 +1,3 @@
-// From lab/sa7 -------DO WE NEED TO CHANGE SHIT
 import Post from '../models/post_model';
 
 // Create Post
@@ -7,6 +6,7 @@ export async function createPost(postFields, user, quest) {
   post.title = postFields.title;
   post.description = postFields.description;
   post.coverUrl = postFields.coverUrl;
+  post.likes = 0;
   // post.user = user.userName;
   // post.quest = quest;
   try {
