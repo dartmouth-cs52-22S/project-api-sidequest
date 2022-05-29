@@ -5,7 +5,7 @@ export async function createPost(postFields, user, quest) {
   const post = new Post();
   post.title = postFields.title;
   post.description = postFields.description;
-  post.coverUrl = postFields.coverUrl;
+  post.photoUrl = postFields.photoUrl;
   post.likes = 0;
   // post.user = user.userName;
   // post.quest = quest;
