@@ -1,16 +1,5 @@
-// From lab/sa7 -------DO WE NEED TO CHANGE SHIT
-
 import mongoose, { Schema } from 'mongoose';
 import bcrypt from 'bcryptjs/dist/bcrypt';
-
-const statsSchema = new Schema({
-  wisdom: Number,
-  strength: Number,
-  charisma: Number,
-  magic: Number,
-  health: Number,
-
-});
 
 const userSchema = new Schema(
   {
@@ -22,7 +11,13 @@ const userSchema = new Schema(
     posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
     inventory: [{ type: Schema.Types.ObjectId, ref: 'Item' }],
     friends: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    stats: statsSchema,
+    stats: {
+      wisdom: Number,
+      strength: Number,
+      charisma: Number,
+      magic: Number,
+      health: Number,
+    },
     groups: [{ type: Schema.Types.ObjectId, ref: 'Group' }],
 
   },
@@ -60,6 +55,7 @@ userSchema.methods.comparePassword = async function comparePassword(candidatePas
   const comparison = await bcrypt.compare(candidatePassword, this.password);
   return comparison;
 };
+
 const UserModel = mongoose.model('User', userSchema);
 
 export default UserModel;
