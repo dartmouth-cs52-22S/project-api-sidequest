@@ -40,7 +40,7 @@ router.get('/all', async (req, res) => {
 });
 
 // Create Quest
-router.post('/', async (req, res) => {
+router.post('/new', async (req, res) => {
   try {
     const result = await Quest.createQuest(req.body, req.user);
 

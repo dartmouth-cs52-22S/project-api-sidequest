@@ -18,7 +18,7 @@ router.get('/all', async (req, res) => {
   }
 });
 
-router.post('/newItem', async (req, res) => {
+router.post('/new', async (req, res) => {
   try {
     const result = await Item.createItem(req.body);
 

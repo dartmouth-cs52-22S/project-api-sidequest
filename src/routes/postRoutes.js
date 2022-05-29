@@ -50,7 +50,7 @@ router.get('/posts/all', async (req, res) => {
   }
 });
 
-router.post('/posts', async (req, res) => {
+router.post('/posts/new', async (req, res) => {
   console.log(req);
   try {
     const result = await Posts.createPost(req.body);
