@@ -1,13 +1,13 @@
 import Post from '../models/post_model';
-
+import { getUser } from './user_controller';
 // Create Post
-export async function createPost(postFields, user, quest) {
+export async function createPost(postFields) {
   const post = new Post();
   post.title = postFields.title;
   post.description = postFields.description;
   post.photoUrl = postFields.photoUrl;
   post.likes = 0;
-  // post.user = user.userName;
+  post.user = getUser(postFields.userId);
   // post.quest = quest;
   try {
     const savedpost = await post.save();

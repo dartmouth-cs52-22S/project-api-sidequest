@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import * as Quest from '../controllers/quest_controller';
+import * as Group from '../controllers/group_controller';
 
 const router = Router();
 
@@ -7,10 +7,10 @@ router.get('/', (req, res) => {
   res.json({ message: 'welcome to our quest router!' });
 });
 
-// GET Quest
+// get Quest
 router.get('/:id', async (req, res) => {
   try {
-    const result = await Quest.getQuest(req.params.id);
+    const result = await Group.getGroup(req.params.id);
 
     res.json(result);
   } catch (error) {
@@ -18,10 +18,10 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// get all quests
+// Get all group
 router.get('/all', async (req, res) => {
   try {
-    const result = await Quest.getQuests();
+    const result = await Group.getGroups();
 
     res.json(result);
   } catch (error) {
@@ -29,11 +29,21 @@ router.get('/all', async (req, res) => {
   }
 });
 
-// Create Quest
+// Create group
 router.post('/new', async (req, res) => {
   try {
-    const result = await Quest.createQuest(req.body, req.user);
+    const result = await Group.createQuest(req.body, req.user);
 
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+});
+
+//  delete group
+router.delete('/:id', async (req, res) => {
+  try {
+    const result = await Group.deleteGroup(req.params.id);
     res.json(result);
   } catch (error) {
     res.status(500).json({ error });

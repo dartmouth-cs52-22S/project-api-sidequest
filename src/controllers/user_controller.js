@@ -19,7 +19,6 @@ export async function deleteUser(id) {
   try {
     console.log(id);
     const user = await User.findByIdAndDelete(id);
-    // console.log(allUsers, 'HIHIIHIHHHI');
     return user;
   } catch (error) {
     throw new Error(`Get posts error: ${error}`);

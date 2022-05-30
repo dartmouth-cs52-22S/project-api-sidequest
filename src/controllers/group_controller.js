@@ -1,5 +1,5 @@
 import Group from '../models/group_model';
-
+import { getUser } from './user_controller';
 // Get all groups
 // eslint-disable-next-line import/prefer-default-export
 export async function getGroups() {
@@ -15,6 +15,8 @@ export async function getGroups() {
 export async function createGroup(questFields) {
   const newGroup = new Group();
   newGroup.name = questFields.name;
+  //   newGroup.users = ;
+  newGroup.admin = getUser(questFields.admin);
   newGroup.description = questFields.description;
   try {
     const savedGroup = await newGroup.save();

@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   res.json({ message: 'welcome to our quest router!' });
 });
 
-// Get all quests
+// Get all DailyQuests
 router.get('/all', async (req, res) => {
   try {
     const result = await DailyQuest.getQuests();
@@ -18,6 +18,7 @@ router.get('/all', async (req, res) => {
   }
 });
 
+// Create new DailyQuest
 router.post('/new', async (req, res) => {
   try {
     const result = await DailyQuest.createQuest(req.body);
