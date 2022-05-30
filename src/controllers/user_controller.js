@@ -1,4 +1,3 @@
-// From lab/sa7 -------DO WE NEED TO CHANGE SHIT
 import jwt from 'jwt-simple';
 import dotenv from 'dotenv';
 import User from '../models/user_model';
