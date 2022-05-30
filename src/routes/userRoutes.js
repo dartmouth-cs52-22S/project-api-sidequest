@@ -21,6 +21,7 @@ router.get('/', (req, res) => {
 router.post('/new', async (req, res) => {
   try {
     const token = await Users.signup(req.body);
+    console.log(token);
     res.json({ token, email: req.body.email });
   } catch (error) {
     res.status(422).send({ error: error.toString() });
@@ -38,6 +39,18 @@ router.get('/all', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
+  console.log(id.substring(1));
+  try {
+    const result = await Users.getUser(id.substring(1));
+
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+});
+
 // **************** SO WHAT DO WE WANNA DO FOR UPDATE. HOW TO GO ABOUT IT? *******************
 // HOW DO I TAKE CARE OF MULTIPLE FIELDS. huh?
 // HOW WILL AUTHENTICATIONWORK WITH THISSSS
@@ -45,6 +58,17 @@ router.put('/:id', async (req, res) => {
   try {
     const result = await Users.updateUser(req.params.id, req.body);
 
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+});
+
+//  delete all users
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const result = await Users.deleteUser(id.substring(1));
     res.json(result);
   } catch (error) {
     res.status(500).json({ error });

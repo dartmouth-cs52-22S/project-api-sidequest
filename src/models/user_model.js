@@ -4,9 +4,11 @@ import bcrypt from 'bcryptjs/dist/bcrypt';
 const userSchema = new Schema(
   {
     name: String,
+    profileUrl: String,
     email: { type: String, unique: true, lowercase: true },
     password: String,
     userName: String,
+    streak: Number,
     quests: [{ type: Schema.Types.ObjectId, ref: 'Quest' }],
     posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
     inventory: [{ type: Schema.Types.ObjectId, ref: 'Item' }],
