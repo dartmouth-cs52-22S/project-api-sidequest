@@ -15,6 +15,17 @@ export async function getUsers() {
     throw new Error(`Get posts error: ${error}`);
   }
 }
+// delete user by id
+export async function deleteUser(id) {
+  try {
+    console.log(id);
+    const user = await User.findByIdAndDelete(id);
+    // console.log(allUsers, 'HIHIIHIHHHI');
+    return user;
+  } catch (error) {
+    throw new Error(`Get posts error: ${error}`);
+  }
+}
 
 // Return the user given their id
 export async function getUser(id) {
