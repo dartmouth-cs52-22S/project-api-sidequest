@@ -15,8 +15,8 @@ export async function getGroups() {
 export async function createGroup(questFields) {
   const newGroup = new Group();
   newGroup.name = questFields.name;
-  //   newGroup.users = ;
-  newGroup.admin = getUser(questFields.admin);
+  newGroup.users = [getUser(questFields.adminId)];
+  newGroup.admin = getUser(questFields.adminId);
   newGroup.description = questFields.description;
   try {
     const savedGroup = await newGroup.save();

@@ -1,5 +1,7 @@
 import Post from '../models/post_model';
 import { getUser } from './user_controller';
+import { getQuest } from './quest_controller';
+
 // Create Post
 export async function createPost(postFields) {
   const post = new Post();
@@ -8,7 +10,7 @@ export async function createPost(postFields) {
   post.photoUrl = postFields.photoUrl;
   post.likes = 0;
   post.user = getUser(postFields.userId);
-  // post.quest = quest;
+  post.quest = getQuest(postFields.questId);
   try {
     const savedpost = await post.save();
     return savedpost;
