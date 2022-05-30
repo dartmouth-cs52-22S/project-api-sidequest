@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   res.json({ message: 'welcome to our items router!' });
 });
 
-// Get all quests
+// Get all items
 router.get('/all', async (req, res) => {
   try {
     const result = await Item.getItems();
@@ -18,6 +18,7 @@ router.get('/all', async (req, res) => {
   }
 });
 
+// Create new item
 router.post('/new', async (req, res) => {
   try {
     const result = await Item.createItem(req.body);

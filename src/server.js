@@ -9,6 +9,7 @@ import userRoutes from './routes/userRoutes';
 import questRoutes from './routes/questRoutes';
 import dailyQuestRoutes from './routes/dailyQuestRoutes';
 import itemRoutes from './routes/itemRoutes';
+import groupRoutes from './routes/groupRoutes';
 
 // initialize
 const app = express();
@@ -36,6 +37,7 @@ app.use('/api/quests', questRoutes);
 app.use('/api/homeTab', postRoutes);
 app.use('/api/dailyQuests', dailyQuestRoutes);
 app.use('/api/items', itemRoutes);
+app.use('/api/groups', groupRoutes);
 
 // additional init stuff should go before hitting the routing
 

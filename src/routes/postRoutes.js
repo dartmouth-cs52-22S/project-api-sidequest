@@ -50,6 +50,7 @@ router.get('/posts/all', async (req, res) => {
   }
 });
 
+// Create new post
 router.post('/posts/new', async (req, res) => {
   console.log(req);
   try {
