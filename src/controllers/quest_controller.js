@@ -30,6 +30,7 @@ export async function getQuests() {
 export async function getQuest(id) {
   try {
     const quest = await Quest.findById(id);
+    console.log(quest, 'quest', id);
     return quest;
   } catch (error) {
     throw new Error(`get quest error: ${error}`);

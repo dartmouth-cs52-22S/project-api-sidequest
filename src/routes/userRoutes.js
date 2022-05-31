@@ -40,10 +40,8 @@ router.get('/all', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  const { id } = req.params;
-  console.log(id.substring(1));
   try {
-    const result = await Users.getUser(id.substring(1));
+    const result = await Users.getUser(req.params.id);
 
     res.json(result);
   } catch (error) {

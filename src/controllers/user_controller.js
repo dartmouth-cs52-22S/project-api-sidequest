@@ -8,20 +8,18 @@ dotenv.config({ silent: true });
 export async function getUsers() {
   try {
     const allUsers = await User.find({}).sort([['date', -1]]);
-    console.log(allUsers, 'HIHIIHIHHHI');
     return allUsers;
   } catch (error) {
-    throw new Error(`Get posts error: ${error}`);
+    throw new Error(`Get users error: ${error}`);
   }
 }
 // delete user by id
 export async function deleteUser(id) {
   try {
-    console.log(id);
     const user = await User.findByIdAndDelete(id);
     return user;
   } catch (error) {
-    throw new Error(`Get posts error: ${error}`);
+    throw new Error(`Delete user error: ${error}`);
   }
 }
 
@@ -31,7 +29,7 @@ export async function getUser(id) {
     const user = await User.findById(id);
     return user;
   } catch (error) {
-    throw new Error(`Get posts error: ${error}`);
+    throw new Error(`Get user error: ${error}`);
   }
 }
 

@@ -52,10 +52,8 @@ router.get('/posts/all', async (req, res) => {
 
 // Create new post
 router.post('/posts/new', async (req, res) => {
-  console.log(req);
   try {
     const result = await Posts.createPost(req.body);
-
     res.json(result);
   } catch (error) {
     res.status(500).json({ error });
