@@ -9,8 +9,9 @@ export async function createPost(postFields) {
   post.description = postFields.description;
   post.photoUrl = postFields.photoUrl;
   post.likes = 0;
-  post.user = getUser(postFields.userId);
-  post.quest = getQuest(postFields.questId);
+
+  post.user = await getUser(postFields.userId);
+  post.quest = await getQuest(postFields.questId);
   try {
     const savedpost = await post.save();
     return savedpost;
