@@ -12,6 +12,14 @@ export async function getQuests() {
   }
 }
 
+export async function getQuest(id) {
+  try {
+    const returnQuest = await DailyQuest.findById(id);
+    return returnQuest;
+  } catch (error) {
+    throw new Error(`Get daily quest error: ${error}`);
+  }
+}
 export async function createQuest(dQuestFields) {
   const newQuest = new DailyQuest();
   newQuest.task = dQuestFields.task;
