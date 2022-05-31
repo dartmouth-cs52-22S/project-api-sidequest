@@ -1,5 +1,6 @@
 import Group from '../models/group_model';
 import { getUser } from './user_controller';
+
 // Get all groups
 // eslint-disable-next-line import/prefer-default-export
 export async function getGroups() {
@@ -12,12 +13,13 @@ export async function getGroups() {
   }
 }
 
-export async function createGroup(questFields) {
+export async function createGroup(groupFileds) {
   const newGroup = new Group();
-  newGroup.name = questFields.name;
-  newGroup.users = await [getUser(questFields.adminId)];
-  newGroup.admin = await getUser(questFields.adminId);
-  newGroup.description = questFields.description;
+  newGroup.name = groupFileds.name;
+  console.log(newGroup.users);
+  newGroup.users.push(await getUser(groupFileds.adminId));
+  newGroup.admin = await getUser(groupFileds.adminId);
+  newGroup.description = groupFileds.description;
   try {
     const savedGroup = await newGroup.save();
     return savedGroup;
@@ -45,9 +47,9 @@ export async function getGroup(id) {
   }
 }
 
-export async function updateGroup(id, postFields) {
+export async function updateGroup(id, groupFileds) {
   try {
-    const update = await Group.findByIdAndUpdate(id, postFields);
+    const update = await Group.findByIdAndUpdate(id, groupFileds);
     return update;
   } catch (error) {
     throw new Error(`create post error: ${error}`);

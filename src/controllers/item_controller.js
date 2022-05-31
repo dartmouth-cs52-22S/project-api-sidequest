@@ -12,11 +12,11 @@ export async function getItems() {
   }
 }
 
-export async function createItem(questFields) {
+export async function createItem(itemFields) {
   const newItem = new Item();
-  newItem.name = questFields.name;
-  newItem.effect = questFields.effect;
-  newItem.description = questFields.description;
+  newItem.name = itemFields.name;
+  newItem.effect = itemFields.effect;
+  newItem.description = itemFields.description;
 
   try {
     const savedItem = await newItem.save();

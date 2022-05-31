@@ -3,10 +3,19 @@ import * as Group from '../controllers/group_controller';
 
 const router = Router();
 
-router.get('/', (req, res) => {
-  res.json({ message: 'welcome to our quest router!' });
-});
+// router.get('/', (req, res) => {
+//   res.json({ message: 'welcome to our quest router!' });
+// });
 
+// Get all group
+router.get('/all', async (req, res) => {
+  try {
+    const result = await Group.getGroups();
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+});
 // get Quest
 router.get('/:id', async (req, res) => {
   try {
@@ -18,21 +27,10 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Get all group
-router.get('/all', async (req, res) => {
-  try {
-    const result = await Group.getGroups();
-
-    res.json(result);
-  } catch (error) {
-    res.status(500).json({ error });
-  }
-});
-
 // Create group
 router.post('/new', async (req, res) => {
   try {
-    const result = await Group.createQuest(req.body, req.user);
+    const result = await Group.createGroup(req.body);
 
     res.json(result);
   } catch (error) {
