@@ -12,9 +12,9 @@ export async function getQuests() {
   }
 }
 
-export async function createQuest(questFields) {
+export async function createQuest(dQuestFields) {
   const newQuest = new DailyQuest();
-  newQuest.task = questFields.task;
+  newQuest.task = dQuestFields.task;
   try {
     const savedQuest = await newQuest.save();
     return savedQuest;
