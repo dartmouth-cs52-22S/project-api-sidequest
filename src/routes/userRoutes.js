@@ -42,8 +42,7 @@ router.get('/all', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const result = await Users.getUser(req.params.id)
-      .populate();
+    const result = await Users.getUser(req.params.id);
 
     res.json(result);
   } catch (error) {
