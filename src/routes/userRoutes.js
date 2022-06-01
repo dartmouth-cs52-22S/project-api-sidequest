@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import * as Users from '../controllers/user_controller';
+// import * as Quest from '../controllers/quest_controller';
 // import { requireSignin } from '../services/passport';
 
 const router = Router();
@@ -41,7 +42,8 @@ router.get('/all', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const result = await Users.getUser(req.params.id);
+    const result = await Users.getUser(req.params.id)
+      .populate();
 
     res.json(result);
   } catch (error) {
@@ -54,13 +56,24 @@ router.get('/:id', async (req, res) => {
 // HOW WILL AUTHENTICATIONWORK WITH THISSSS
 router.put('/:id', async (req, res) => {
   try {
-    const result = await Users.updateUser(req.params.id, req.body);
-
+    await Users.updateUser(req.params.id, req.body);
+    const result = await Users.getUser(req.params.id);
     res.json(result);
   } catch (error) {
     res.status(500).json({ error });
   }
 });
+
+// router.put('addQuest/:id', async (req, res) => {
+//   try {
+//     const newQuest = await Quest.createQuest();
+//     await Users.updateUser(req.params.id, req.body);
+//     const result = await Users.getUser(req.params.id);
+//     res.json(result);
+//   } catch (error) {
+//     res.status(500).json({ error });
+//   }
+// });
 
 //  delete all users
 router.delete('/:id', async (req, res) => {

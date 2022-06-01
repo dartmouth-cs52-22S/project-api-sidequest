@@ -7,17 +7,6 @@ router.get('/', (req, res) => {
   res.json({ message: 'welcome to our quest router!' });
 });
 
-// GET Quest
-router.get('/:id', async (req, res) => {
-  try {
-    const result = await Quest.getQuest(req.params.id);
-
-    res.json(result);
-  } catch (error) {
-    res.status(404).json({ error });
-  }
-});
-
 // get all quests
 router.get('/all', async (req, res) => {
   try {
@@ -26,6 +15,16 @@ router.get('/all', async (req, res) => {
     res.json(result);
   } catch (error) {
     res.status(500).json({ error });
+  }
+});
+// GET Quest
+router.get('/:id', async (req, res) => {
+  try {
+    const result = await Quest.getQuest(req.params.id);
+
+    res.json(result);
+  } catch (error) {
+    res.status(404).json({ error });
   }
 });
 

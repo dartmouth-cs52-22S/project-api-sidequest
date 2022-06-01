@@ -26,7 +26,7 @@ export async function deleteUser(id) {
 // Return the user given their id
 export async function getUser(id) {
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(id).populate('quests');
     return user;
   } catch (error) {
     throw new Error(`Get user error: ${error}`);
@@ -37,7 +37,7 @@ export async function getUser(id) {
 // ^LIKE WHAT WILL updateFields LOOK LIKE. NEED TO KNOW BEFORE I DO THIS
 export async function updateUser(id, updateFields) {
   try {
-    const user = await User.findById(id);
+    const user = await User.findByIdAndUpdate(id, updateFields);
 
     return user;
   } catch (error) {
