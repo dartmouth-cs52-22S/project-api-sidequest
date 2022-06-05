@@ -1,13 +1,12 @@
 # Project Name
 
-![Team Photo](https://imgur.com/a/sgQVDQm)
-
+[<img  src="./images/team.jpg" alt="modalpage"  />](./images/team.jpg)
 
 TODO: short project description, some sample screenshots or mockups
 
 ## Architecture
 
-![MondoDB Photo](https://imgur.com/a/UEv7lY1)
+[<img  src="./images/mongo.png" alt="modalpage"/>](./images/mongo.png)
 
 This picture shows the basic structure of how the backend of organized. 
 For example, everything to do with the user was stored in the ...api/users/*the path for what we are trying to do*
