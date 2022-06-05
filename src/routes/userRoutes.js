@@ -51,9 +51,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// **************** SO WHAT DO WE WANNA DO FOR UPDATE. HOW TO GO ABOUT IT? *******************
-// HOW DO I TAKE CARE OF MULTIPLE FIELDS. huh?
-// HOW WILL AUTHENTICATIONWORK WITH THISSSS
 router.put('/:id', async (req, res) => {
   try {
     await Users.updateUser(req.params.id, req.body);
