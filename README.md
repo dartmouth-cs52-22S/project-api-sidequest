@@ -1,24 +1,42 @@
-# Project Name
+# SideQuest Back-End
 
-![Team Photo](Insert a Team Photo URL here)
-[*how?*](https://help.github.com/articles/about-readmes/#relative-links-and-image-paths-in-readme-files)
+[<img  src="./images/team.jpg" alt="modalpage"  />](./images/team.jpg)
 
 TODO: short project description, some sample screenshots or mockups
 
 ## Architecture
 
-TODO:  descriptions of code organization and tools and libraries used
+[<img  src="./images/mongo.png" alt="modalpage"/>](./images/mongo.png)
+
+This picture shows the basic structure of how the backend of organized. 
+For example, everything to do with the user was stored in the ...api/users/*the path for what we are trying to do*
+This allowed us to stay organized and store data in a way that was intuitive and accessible. 
+
 
 ## Setup
 
-TODO: how to get the project dev environment up and running, npm install etc
+To install all the node moduals, use npm install
 
 ## Deployment
 
-TODO: how to deploy the project
+[BackendApi](https://sidequest.onrender.com/) 
 
 ## Authors
 
-TODO: list of authors
+Kashan Mahmood
+Zhoucai Ni
+Syed Hussaini
+Ryan Luu
+Ke Lou
+Jose Hernandez Barbosa 
 
 ## Acknowledgments
+
+I love my teammates -Zhoucai
+Teammates were homies and we got it done- Syed
+Goodjob team - Ke
+Wonderful ideas wonderful people - Jose
+Keep building team! - Ryan
+Good work team. Love the idea and the execution. HAGS - Kashan
+Jordan Sanz (TA) and Sathvika Korandla (TA), and Tim Tregubov for being amazing and wonderful help!
+
